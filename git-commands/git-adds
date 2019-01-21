@@ -1,0 +1,6 @@
+#!/bin/bash
+
+((!$#)) && echo No path specified, command ignored && exit 1
+
+git add $1
+git status
