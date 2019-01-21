@@ -1,0 +1,15 @@
+[core]
+	editor = /usr/bin/vim
+[user]
+	name = Dima Gonikman
+[alias]
+	s = status
+	d = diff
+	a = add
+	c = commit
+	ca = commit --amend
+	g = graph
+	cat = commit --amend --no-edit
+	purr = pull --rebase
+[credential]
+	helper = store

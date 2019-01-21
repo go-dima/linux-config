@@ -1,0 +1,12 @@
+
+# my_bashrc
+
+export PATH=$PATH:$HOME/bin
+
+# aliases
+alias la='ls -a --color=auto'
+alias lla='ls -la --color=auto'
+
+# git prompt integration
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh

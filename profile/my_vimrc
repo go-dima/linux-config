@@ -1,0 +1,10 @@
+set number
+set hls
+set ic
+
+command Rb :w | ! bash %:p
+command Rp :w | ! python3 %:p
+
+nmap <C-R><C-B> :Rb<Enter>
+nmap <C-R><C-P> :Rp<Enter>
+
