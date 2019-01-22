@@ -26,5 +26,5 @@ cat profile/my_vimrc > ~/.vimrc
 # cleanup
 if [ ! -z $1 ]; then
   cd ..
-  rm -r linux-config
+  rm -rf linux-config
 fi

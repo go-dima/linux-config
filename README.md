@@ -13,5 +13,8 @@ Configure working environment on linux with:
   - run **_deploy-config.sh_**
 
 * remote mode
-  - dowonload/copy _deploy-config.sh_ 
-  - run **_deploy-config.sh -remote_** (or **-r**)
+
+  run:
+  - **_curl https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh > deploy\_config.sh_**
+  - **_source deploy-config.sh -remote_** (or **-r**)
+
