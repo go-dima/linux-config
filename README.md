@@ -15,6 +15,6 @@ Configure working environment on linux with:
 * remote mode
 
   run:
-  - **_curl https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh > deploy\_config.sh_**
+  - **_curl https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh > deploy-config.sh_**
   - **_source deploy-config.sh -remote_** (or **-r**)
 
