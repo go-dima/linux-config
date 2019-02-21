@@ -25,7 +25,9 @@ fi
 
 # configure bashrc
 cat profile/my_bashrc > ~/.bashrc.extra
-echo "source ~/.bashrc.extra" >> ~/.bashrc
+PATTERN='source ~/.bashrc.extra'
+BASHRC_FILE=~/.bashrc
+grep -qxF -- "$PATTERN" "$BASHRC_FILE" || echo "$PATTERN" >> "$BASHRC_FILE"
 
 # configure git
 cat profile/my_gitconfig > ~/.gitconfig
