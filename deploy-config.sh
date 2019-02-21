@@ -11,9 +11,21 @@ if [ ! -z $1 ]; then
   fi
 fi
 
-# setup bash-git-prompt
-git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1 
-cat profile/my_bashrc >> ~/.bashrc
+# clone bash-git-prompt
+BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
+BASH_GIT_PROMPT_FOLDER=~/.bash-git-prompt
+
+if [ ! -d "$BASH_GIT_PROMPT_FOLDER" ] ; then
+    git clone $BASH_GIT_PROMPT_URL $BASH_GIT_PROMPT_FOLDER --depth=1
+else
+    cd "$BASH_GIT_PROMPT_FOLDER"
+    git pull $BASH_GIT_PROMPT_URL
+    cd -
+fi
+
+# configure bashrc
+cat profile/my_bashrc > ~/.bashrc.extra
+echo "source ~/.bashrc.extra" >> ~/.bashrc
 
 # configure git
 cat profile/my_gitconfig > ~/.gitconfig
