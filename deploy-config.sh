@@ -42,3 +42,6 @@ if [ ! -z $1 ]; then
   cd ..
   rm -rf linux-config
 fi
+
+# apply changes
+source ~/.bashrc
