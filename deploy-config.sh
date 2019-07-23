@@ -1,14 +1,21 @@
 #!/bin/bash -e
 
-# clone repo
+SKIP_CLONE=false
+
 if [ ! -z $1 ]; then
-  if [ "$1" == "-remote" ] || [ "$1" == "-r" ]; then
-    git clone https://github.com/go-dima/linux-config.git
-    cd linux-config
+  if [ "$1" == "-local" ] || [ "$1" == "-l" ]; then
+    echo Running from local folder
+    SKIP_CLONE=true
   else
     echo Invalid option: $1
     exit 1
   fi
+fi
+
+if [[ ${SKIP_CLONE} == "false" ]]; then
+  # clone repo
+  git clone https://github.com/go-dima/linux-config.git
+  cd linux-config
 fi
 
 # clone bash-git-prompt
