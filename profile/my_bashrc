@@ -5,6 +5,7 @@ export PATH=$PATH:$HOME/bin
 # aliases
 alias la='ls -a --color=auto'
 alias lla='ls -la --color=auto'
+alias reloadBash='source ~/.bashrc'
 
 # Git aliases
 alias gits='git status'
