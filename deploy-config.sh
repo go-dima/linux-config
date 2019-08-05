@@ -18,6 +18,9 @@ if [ "${SKIP_CLONE}" == "false" ]; then
   # clone repo
   git clone https://github.com/go-dima/linux-config.git
   cd linux-config
+else
+  echo Condition is false
+  exit 1
 fi
 
 # clone bash-git-prompt
