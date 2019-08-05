@@ -10,12 +10,12 @@ Configure working environment on linux with:
 * local mode
   - clone repo
   - cd into linux-config folder
-  - run **_deploy-config.sh_**
+  - run **_deploy-config.sh -local|-l_**
 
 * remote mode
 
   run:
-  - **_sh -c "$(curl -fsSL https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh)_"**
+  - **_curl -s https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh | bash_**
 
   or:
   - **_curl https://raw.githubusercontent.com/go-dima/linux-config/master/deploy-config.sh > deploy-config.sh_**

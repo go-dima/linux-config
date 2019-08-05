@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-set -o xtrace
-
 SKIP_CLONE=false
 
 if [[ ! -z "$1" ]]; then
@@ -18,9 +16,6 @@ if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # clone repo
   git clone https://github.com/go-dima/linux-config.git
   cd linux-config
-else
-  echo Condition is false
-  exit 1
 fi
 
 # clone bash-git-prompt
@@ -50,7 +45,7 @@ cp git-commands/* ~/bin/
 cat profile/my_vimrc > ~/.vimrc
 
 # cleanup
-if [[ ! -z "$1" ]]; then
+if [[ -z "$1" ]]; then
   cd ..
   rm -rf linux-config
 fi
