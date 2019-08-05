@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+set -o xtrace
+
 SKIP_CLONE=false
 
 if [ ! -z $1 ]; then
