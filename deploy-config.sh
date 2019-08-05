@@ -4,7 +4,7 @@ set -o xtrace
 
 SKIP_CLONE=false
 
-if [[ ! -z $1 ]]; then
+if [[ ! -z "$1" ]]; then
   if [[ "$1" == "-local" ]] || [[ "$1" == "-l" ]]; then
     echo Running from local folder
     SKIP_CLONE=true
@@ -50,7 +50,7 @@ cp git-commands/* ~/bin/
 cat profile/my_vimrc > ~/.vimrc
 
 # cleanup
-if [[ ! -z $1 ]]; then
+if [[ ! -z "$1" ]]; then
   cd ..
   rm -rf linux-config
 fi
