@@ -13,12 +13,12 @@ if [[ ! -z "$1" ]]; then
 fi
 
 if [[ "${SKIP_CLONE}" -eq "false" ]]; then
-  # clone repo
+  # Clone repo
   git clone https://github.com/go-dima/linux-config.git
   cd linux-config
 fi
 
-# clone bash-git-prompt
+# Clone bash-git-prompt
 BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
 BASH_GIT_PROMPT_FOLDER=~/.bash-git-prompt
 
@@ -30,25 +30,26 @@ else
     cd -
 fi
 
-# configure bashrc
+# Configure bashrc
 cat profile/my_bashrc > ~/.bashrc.extra
 PATTERN='source ~/.bashrc.extra'
 BASHRC_FILE=~/.bashrc
 grep -qxF -- "$PATTERN" "$BASHRC_FILE" || echo "$PATTERN" >> "$BASHRC_FILE"
 
-# configure git
+# Configure git
 cat profile/my_gitconfig > ~/.gitconfig
 mkdir -p ~/bin
 cp git-commands/* ~/bin/
 
-# configure vim
+# Configure vim
 cat profile/my_vimrc > ~/.vimrc
 
-# cleanup
+# Cleanup
 if [[ -z "$1" ]]; then
   cd ..
   rm -rf linux-config
 fi
 
-# apply changes
+# Apply changes
 source ~/.bashrc
+echo Configuration complete
