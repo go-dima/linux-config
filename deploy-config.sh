@@ -14,7 +14,7 @@ if [ ! -z $1 ]; then
   fi
 fi
 
-if [ "${SKIP_CLONE}" == "false" ]; then
+if [ "${SKIP_CLONE}" -eq "false" ]; then
   # clone repo
   git clone https://github.com/go-dima/linux-config.git
   cd linux-config
