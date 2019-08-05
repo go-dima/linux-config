@@ -4,8 +4,8 @@ set -o xtrace
 
 SKIP_CLONE=false
 
-if [ ! -z $1 ]; then
-  if [ "$1" == "-local" ] || [ "$1" == "-l" ]; then
+if [[ ! -z $1 ]]; then
+  if [[ "$1" == "-local" ]] || [[ "$1" == "-l" ]]; then
     echo Running from local folder
     SKIP_CLONE=true
   else
@@ -14,7 +14,7 @@ if [ ! -z $1 ]; then
   fi
 fi
 
-if [ "${SKIP_CLONE}" -eq "false" ]; then
+if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # clone repo
   git clone https://github.com/go-dima/linux-config.git
   cd linux-config
@@ -27,7 +27,7 @@ fi
 BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
 BASH_GIT_PROMPT_FOLDER=~/.bash-git-prompt
 
-if [ ! -d "$BASH_GIT_PROMPT_FOLDER" ] ; then
+if [[ ! -d "$BASH_GIT_PROMPT_FOLDER" ]] ; then
     git clone $BASH_GIT_PROMPT_URL $BASH_GIT_PROMPT_FOLDER --depth=1
 else
     cd "$BASH_GIT_PROMPT_FOLDER"
@@ -50,7 +50,7 @@ cp git-commands/* ~/bin/
 cat profile/my_vimrc > ~/.vimrc
 
 # cleanup
-if [ ! -z $1 ]; then
+if [[ ! -z $1 ]]; then
   cd ..
   rm -rf linux-config
 fi
