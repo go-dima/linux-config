@@ -12,6 +12,10 @@ if [[ ! -z "$1" ]]; then
   fi
 fi
 
+echo '########## Update & Install Tools ##########'
+sudo apt-get update
+sudo apt-get -y install git
+
 if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # Clone repo
   git clone https://github.com/go-dima/linux-config.git
