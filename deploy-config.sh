@@ -22,7 +22,7 @@ if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   cd linux-config
 fi
 
-# Clone bash-git-prompt
+echo '########## Configure bash-git-prompt ##########'
 BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
 BASH_GIT_PROMPT_FOLDER=~/.bash-git-prompt
 
@@ -34,26 +34,28 @@ else
     cd -
 fi
 
-# Configure bashrc
+echo '########## Configure bashrc ##########'
 cat profile/my_bashrc > ~/.bashrc.extra
 PATTERN='source ~/.bashrc.extra'
 BASHRC_FILE=~/.bashrc
 grep -qxF -- "$PATTERN" "$BASHRC_FILE" || echo "$PATTERN" >> "$BASHRC_FILE"
 
-# Configure git
+echo '########## Configure git ##########'
 cat profile/my_gitconfig > ~/.gitconfig
 mkdir -p ~/bin
 cp git-commands/* ~/bin/
 
-# Configure vim
+echo '########## Configure vim ##########'
 cat profile/my_vimrc > ~/.vimrc
 
 # Cleanup
 if [[ -z "$1" ]]; then
+  echo 
   cd ..
   rm -rf linux-config
 fi
 
-# Apply changes
+echo '########## Apply Changes ##########'
 source ~/.bashrc
-echo Configuration complete
+
+echo '########## Configuration Complete ##########'
