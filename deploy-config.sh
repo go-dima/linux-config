@@ -14,7 +14,8 @@ fi
 
 echo '########## Update & Install Tools ##########'
 sudo apt-get update
-sudo apt-get -y install git
+packages_to_install=`cat packages | awk '{printf("%s ",$0)}'`
+sudo apt-get -y install ${PACKAGES_TO_INSTALL}
 
 if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # Clone repo
