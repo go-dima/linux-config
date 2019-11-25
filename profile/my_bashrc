@@ -18,3 +18,12 @@ alias gita='git add'
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_SHOW_UPSTREAM=0
 source ~/.bash-git-prompt/gitprompt.sh
+
+# Custom Bash prompt
+GREEN_ID="\033[0;32m"
+CYAN_ID="\033[0;36m"
+NO_COLOR_ID="\033[0m"
+GREEN="\[${GREEN_ID}\]"
+CYAN="\[${CYAN_ID}\]"
+NO_COLOR="\[${NO_COLOR_ID}\]"
+export PS1="${GREEN}\u${CYAN}@\h \w${GREEN}$(__git_ps1)\n└ \$ ${NO_COLOR}"
