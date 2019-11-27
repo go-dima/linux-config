@@ -5,7 +5,7 @@
 [alias]
 	s = status
 	d = diff
-	a = add
+	a = adds
 	c = commit
 	ca = commit --amend
 	g = graph
