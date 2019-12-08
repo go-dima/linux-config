@@ -19,8 +19,8 @@ sudo apt-get -y install ${PACKAGES_TO_INSTALL}
 
 if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # Clone repo
-  git clone https://github.com/go-dima/linux-config.git
-  cd linux-config
+  git clone https://github.com/go-dima/linux-config.git ~/.linux-config
+  cd ~/.linux-config
 fi
 
 echo '########## Configure bash-git-prompt ##########'
@@ -36,8 +36,7 @@ else
 fi
 
 echo '########## Configure bashrc ##########'
-cat profile/my_bashrc > ~/.bashrc.extra
-PATTERN='source ~/.bashrc.extra'
+PATTERN='source ~/.linux-config/profile/my_bashrc'
 BASHRC_FILE=~/.bashrc
 grep -qxF -- "$PATTERN" "$BASHRC_FILE" || echo "$PATTERN" >> "$BASHRC_FILE"
 
@@ -48,13 +47,6 @@ cp git-commands/* ~/bin/
 
 echo '########## Configure vim ##########'
 cat profile/my_vimrc > ~/.vimrc
-
-# Cleanup
-if [[ -z "$1" ]]; then
-  echo 
-  cd ..
-  rm -rf linux-config
-fi
 
 echo '########## Apply Changes ##########'
 source ~/.bashrc
