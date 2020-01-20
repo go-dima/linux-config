@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+# Trim local branches the has no remote (deleted) with manual confirmation.
+
+RED='\033[91m'
+BOLD_CYAN='\033[1;96m'
+END='\033[0m'
+
+BRANCHES=`git branch -vv | grep gone | tr -d '*' | awk '{$1=$1;print}' | cut -d' ' -f1`
+
+if [[ -z "$BRANCHES" ]]; then
+    echo "Nothing to do."
+fi
+
+for branch in ${BRANCHES}
+do
+     #Work here
+     echo -ne "Branch ${BOLD_CYAN}${branch}${END}."
+     echo -n " Delete? "
+     read yesno
+     
+     if [[ ${yesno} == 'y' ]]; then
+        #echo -e "\t\tDelete. git branch -D ${branch}"
+        echo -ne "${RED}"
+        git branch -D ${branch}
+        echo -ne "${END}"
+     fi
+done
