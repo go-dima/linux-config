@@ -12,16 +12,19 @@ if [[ ! -z "$1" ]]; then
   fi
 fi
 
-echo '########## Update & Install Tools ##########'
+echo '########## Update & Install Git ##########'
 sudo apt-get update
-packages_to_install=`cat packages | awk '{printf("%s ",$0)}'`
-sudo apt-get -y install ${PACKAGES_TO_INSTALL}
+sudo apt-get -y install git
 
 if [[ "${SKIP_CLONE}" -eq "false" ]]; then
   # Clone repo
   git clone https://github.com/go-dima/linux-config.git ~/.linux-config
   cd ~/.linux-config
 fi
+
+echo '########## Install Tools ##########'
+packages_to_install=`cat packages | awk '{printf("%s ",$0)}'`
+sudo apt-get -y install ${PACKAGES_TO_INSTALL}
 
 echo '########## Configure bash-git-prompt ##########'
 BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
