@@ -25,6 +25,7 @@ fi
 echo '########## Install Tools ##########'
 packages_to_install=`cat packages | awk '{printf("%s ",$0)}'`
 sudo apt-get -y install ${PACKAGES_TO_INSTALL}
+git clone https://github.com/go-dima/Utils.git
 
 echo '########## Configure bash-git-prompt ##########'
 BASH_GIT_PROMPT_URL=https://github.com/magicmonty/bash-git-prompt.git
