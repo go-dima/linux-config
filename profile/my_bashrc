@@ -1,6 +1,6 @@
 # .bashrc.extra
 
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin:$HOME/.utils/scripts
 
 # aliases
 alias la='ls -a --color=auto'
