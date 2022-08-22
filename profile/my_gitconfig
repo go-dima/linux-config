@@ -11,7 +11,7 @@
 	ca = commit --amend
 	cat = commit --amend --no-edit
 	cnp = commit-push
-	cm = commit -m
+	cm = "!f() { git commit -m \"${*}\"; }; f"
 	g = graph
 	purr = pull --rebase
 	whoami = !git config user.name && git config user.email
