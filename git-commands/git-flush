@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git fetch --all --prune
+git checkout main
+git pull
+git graph -10
