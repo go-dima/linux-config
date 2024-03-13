@@ -17,5 +17,6 @@
 	whoami = !git config user.name && git config user.email
 	update = !git stash save && git pull --rebase && git stash pop
 	sync = !git fetch --all && git merge origin/master --no-edit
+	refresh = !git checkout main && git fetch --all --prune && git purr
 [credential]
 	helper = store
