@@ -15,7 +15,6 @@
   - https://lnkd.in/gYzjrYNA
 
 </details>
-
 <details>
 <summary>📥 Not Installed</summary>
 
