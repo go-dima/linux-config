@@ -18,5 +18,6 @@
 	update = !git stash save && git pull --rebase && git stash pop
 	sync = !git fetch --all && git merge origin/master --no-edit
 	refresh = !git checkout main && git fetch --all --prune && git purr
+	gcmp = "!f() { git commit -m \"$1\" && git push; }; f"
 [credential]
 	helper = store
