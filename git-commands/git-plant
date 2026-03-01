@@ -1,0 +1,61 @@
+#!/bin/bash
+
+set -e
+
+RED='\033[91m'
+YELLOW='\033[93m'
+CYAN='\033[1;93m'
+END='\033[0m'
+
+DRY_RUN=false
+POSITIONAL=()
+
+for arg in "$@"; do
+  case $arg in
+    --dry-run) DRY_RUN=true ;;
+    --help|-h)
+      echo "Usage: git plant <branch-name> [feature-name] [--dry-run]"
+      echo ""
+      echo "  branch-name    Name of the new branch to create (required)"
+      echo "  feature-name   Short label; folder becomes {repo}-{ticket}-{feature} (default: branch-name)"
+      echo "  --dry-run      Print the git worktree command without executing it"
+      exit 0 ;;
+    *) POSITIONAL+=("$arg") ;;
+  esac
+done
+
+BRANCH_NAME=${POSITIONAL[0]//\//-}
+FEATURE_NAME=${POSITIONAL[1]}
+
+if [[ -z $BRANCH_NAME ]]; then
+  echo -e "${RED}No branch specified.${END}"
+  exit 1
+fi
+
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo -e "${YELLOW}Not inside a git repository.${END}"
+  exit 1
+fi
+
+REPO_NAME=$(basename "$(git rev-parse --show-toplevel)")
+
+if [[ $BRANCH_NAME =~ ([a-zA-Z]{3}-[0-9]+) ]]; then
+  TICKET="${BASH_REMATCH[1]}"
+elif [[ -n $FEATURE_NAME ]]; then
+  echo -e "${YELLOW}No ticket number (XXX-NNNN) found in branch name, using branch name as folder suffix.${END}"
+fi
+
+if [[ -n $FEATURE_NAME ]]; then
+  WORKTREE_PATH="../${REPO_NAME}-${TICKET:-$BRANCH_NAME}-${FEATURE_NAME}"
+else
+  WORKTREE_PATH="../${REPO_NAME}-${BRANCH_NAME}"
+fi
+
+if $DRY_RUN; then
+  echo -e "${CYAN}git worktree add \"${WORKTREE_PATH}\" -b \"${BRANCH_NAME}\"${END}"
+else
+  set -x
+  git worktree add "$WORKTREE_PATH" -b "$BRANCH_NAME"
+  { set +x; } 2>/dev/null # Turn off tracing & suppress output
+  echo -e "Worktree created at ${YELLOW}${WORKTREE_PATH}${END}"
+fi
