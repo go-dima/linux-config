@@ -1,0 +1,4 @@
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# ${(%):-%x} = path of this file (zsh prompt expansion); :h = dirname
+source "${${(%):-%x}:h}/my_aliases"
