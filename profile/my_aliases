@@ -1,0 +1,16 @@
+# Shell
+alias la='ls -a --color=auto'
+alias lla='ls -la --color=auto'
+alias reload='source ~/.zshrc 2>/dev/null || source ~/.bashrc'
+alias edit='vim ~/.my_zshrc'
+alias edit_dot='vim ~/.zshrc'
+
+# Brew
+alias pour='HOMEBREW_NO_AUTO_UPDATE=1 brew install'
+
+# Git
+alias gits='git status'
+alias gitg='git graph'
+alias gitd='git diff'
+alias gitr='git rebase'
+alias gita='git add'

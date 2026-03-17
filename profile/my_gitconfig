@@ -1,7 +1,17 @@
 [core]
 	editor = /usr/bin/vim
+	autocrlf = input
+	pager = delta
 [user]
 	name = Dima Gonikman
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[diff]
+	colorMoved = zebra
+[merge]
+	conflictstyle = diff3
 [alias]
 	s = status
 	d = diff
@@ -19,5 +29,13 @@
 	sync = !git fetch --all && git merge origin/master --no-edit
 	refresh = !git checkout main && git fetch --all --prune && git purr
 	cmp = "!f() { git commit -m \"$1\" && git push; }; f"
+	st = stash
+	br = branch
+	co = checkout
+	sw = switch
+	l = log --oneline -20
+	undo = reset HEAD~1 --mixed
+	nuke = reset HEAD~1 --hard
+	aliases = !git config --list | grep alias
 [credential]
 	helper = store

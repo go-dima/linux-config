@@ -1,0 +1,86 @@
+{
+  "packages": [
+    {
+      "name": "git"
+    },
+    {
+      "name": "tree"
+    },
+    {
+      "name": "curl",
+      "brew": false
+    },
+    {
+      "name": "zsh",
+      "brew": false
+    },
+    {
+      "name": "fzf"
+    },
+    {
+      "name": "ripgrep"
+    },
+    {
+      "name": "jq"
+    },
+    {
+      "name": "bat"
+    },
+    {
+      "name": "tldr",
+      "apt": false
+    },
+    {
+      "name": "watch"
+    },
+    {
+      "name": "fd",
+      "apt": "fd-find",
+      "brew": false
+    },
+    {
+      "name": "delta",
+      "apt": false
+    },
+    {
+      "name": "gh",
+      "apt": false
+    },
+    {
+      "name": "docker",
+      "brew": "cask",
+      "apt": "docker.io"
+    },
+    {
+      "name": "docker-compose",
+      "brew": false
+    },
+    {
+      "name": "ngrok",
+      "brew": "cask",
+      "apt": false
+    }
+  ],
+  "curl": [
+    {
+      "name": "omz",
+      "cmd": "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
+    },
+    {
+      "name": "p10k",
+      "cmd": "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k"
+    },
+    {
+      "name": "zsh-autosuggestions",
+      "cmd": "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+    },
+    {
+      "name": "zsh-syntax-highlighting",
+      "cmd": "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+    },
+    {
+      "name": "you-should-use",
+      "cmd": "git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use"
+    }
+  ]
+}
