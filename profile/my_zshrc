@@ -2,3 +2,18 @@
 
 # ${(%):-%x} = path of this file (zsh prompt expansion); :h = dirname
 source "${${(%):-%x}:h}/my_aliases"
+
+# Aliases
+# >>> zshrsc >>>
+alias edit_dot="vim ~/.zshrc"
+alias edit="vim ~/.my_zshrc"
+alias reload="source ~/.zshrc"
+
+swap() {
+  edit && reload
+}
+
+cmd(){
+  md $@ && cd $_
+}
+# <<< zshrc <<<
