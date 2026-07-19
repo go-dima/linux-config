@@ -9,11 +9,31 @@ alias edit_dot="vim ~/.zshrc"
 alias edit="vim ~/.my_zshrc"
 alias reload="source ~/.zshrc"
 
+alias py="pwd | pbcopy"
+alias cx="chmod +x"
+
 swap() {
   edit && reload
 }
 
-cmd(){
+mdd(){
   md $@ && cd $_
 }
+
+cl(){
+  cd $@ && ls -l .
+}
+
 # <<< zshrc <<<
+
+# >>> npm aliases >>>
+
+alias ni="npm install"
+alias nrb="npm run build"
+alias nrd="npm run dev"
+
+# <<< npm aliases <<<
+
+alias ghprvw="gh pr view --web"
+alias ghprct="gh pr create --title"
+alias pour="HOMEBREW_NO_AUTO_UPDATE=1 brew install"
